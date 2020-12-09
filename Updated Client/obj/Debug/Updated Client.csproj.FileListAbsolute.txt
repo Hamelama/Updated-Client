@@ -1,0 +1,7 @@
+C:\Users\Lech Kula\source\repos\Updated Client\Updated Client\bin\Debug\Updated Client.exe.config
+C:\Users\Lech Kula\source\repos\Updated Client\Updated Client\bin\Debug\Updated Client.exe
+C:\Users\Lech Kula\source\repos\Updated Client\Updated Client\bin\Debug\Updated Client.pdb
+C:\Users\Lech Kula\source\repos\Updated Client\Updated Client\obj\Debug\Updated Client.csprojAssemblyReference.cache
+C:\Users\Lech Kula\source\repos\Updated Client\Updated Client\obj\Debug\Updated Client.csproj.CoreCompileInputs.cache
+C:\Users\Lech Kula\source\repos\Updated Client\Updated Client\obj\Debug\Updated Client.exe
+C:\Users\Lech Kula\source\repos\Updated Client\Updated Client\obj\Debug\Updated Client.pdb
