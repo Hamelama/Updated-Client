@@ -85,7 +85,6 @@ namespace Client
             Console.WriteLine();
             Console.WriteLine(@"Do you want to set an username?");
             Console.WriteLine(@"If yes then write /set name, then enter and write username");
-            Console.WriteLine(@"Will take some time before username us updated");
             topWrite = Console.CursorTop;
         }
 
@@ -105,7 +104,7 @@ namespace Client
                     Console.SetCursorPosition(0, 0);
                     Console.Write(new string(' ', Console.BufferWidth));
                     Console.SetCursorPosition(0, 0);
-                    Console.Write("<{0}> (you) ", username);
+                    Console.Write("<{0}> (you): ", username);
                     
                     
                     requestSent = Console.ReadLine();
@@ -135,7 +134,7 @@ namespace Client
                 if (received == 0)
                     return;
                 leftRead = Console.CursorLeft;
-                Console.SetCursorPosition(0, topWrite);
+                
                 
                 string receivedText = Encoding.UTF8.GetString(buffer, 0, received);
                 
@@ -153,9 +152,16 @@ namespace Client
 
                         case "setName":
                             username = text;
+                            Console.SetCursorPosition(0, 0);
+                            Console.Write(new string(' ', Console.BufferWidth));
+                            Console.SetCursorPosition(0, 0);
+                            string newWritePrompt = "<" + username + "> (you): ";
+                            Console.Write(newWritePrompt);
+                            leftRead = newWritePrompt.Length;
                             break;
 
                         default:
+                            Console.SetCursorPosition(0, topWrite);
                             Console.WriteLine(TextType + ": " + text);
 
                             topWrite++;
