@@ -22,8 +22,6 @@ namespace Client
 
         private static string username = "you";
 
-        private const int BufferSize = 2048;
-
         private static bool _closing = false;
 
         private static int topWrite = 10;
@@ -79,7 +77,7 @@ namespace Client
             }
             Console.SetCursorPosition(0, topWrite);
 
-            Console.WriteLine("Connected to server with IP-adress: {0}", ServerIP);
+            Console.WriteLine(@"Connected to server with IP-adress: {0}", ServerIP);
             Console.WriteLine();
             Console.WriteLine(@"Type ""/exit"" to properly disconnect client");
             Console.WriteLine();
@@ -104,10 +102,16 @@ namespace Client
                     Console.SetCursorPosition(0, 0);
                     Console.Write(new string(' ', Console.BufferWidth));
                     Console.SetCursorPosition(0, 0);
+                    Console.WriteLine();
+                    Console.SetCursorPosition(0, 0);
                     Console.Write("<{0}> (you): ", username);
-                    
-                    
+                    string writePrompt = "<" + username + "> (you): ";
+                  
+                    leftRead = writePrompt.Length;
+                    Console.SetCursorPosition(leftRead, 0);
+
                     requestSent = Console.ReadLine();
+                    Console.Write(new string(' ', Console.BufferWidth));
                     string formattedRequest = username + "@" + requestSent;
                     ClientSocket.Send(Encoding.UTF8.GetBytes(formattedRequest), SocketFlags.None);
 
@@ -155,9 +159,12 @@ namespace Client
                             Console.SetCursorPosition(0, 0);
                             Console.Write(new string(' ', Console.BufferWidth));
                             Console.SetCursorPosition(0, 0);
+                            Console.WriteLine();
+                            Console.SetCursorPosition(0, 0);
                             string newWritePrompt = "<" + username + "> (you): ";
                             Console.Write(newWritePrompt);
                             leftRead = newWritePrompt.Length;
+                            Console.SetCursorPosition(leftRead, 0);
                             break;
 
                         default:
@@ -169,11 +176,6 @@ namespace Client
                     }
                 }
                  
-                
-                
-                
-                
-
                 Console.SetCursorPosition(leftRead, 0);
             }
 
